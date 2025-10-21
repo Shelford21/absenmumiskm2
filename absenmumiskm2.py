@@ -2,49 +2,49 @@ import streamlit as st
 import pandas as pd
 import os
 
-# File name for storing data
-EXCEL_FILE = "submissions.xlsx"
+# File to store submissions
+CSV_FILE = "submissions.csv"
 
-st.title("Absen Mumi SKM 2 ✨")
+st.title("Text Submission App")
 
-# Create input field
-user_input = st.text_input("Ketik nama: (contoh: fauzan / bagas ijin kerja / rehan sakit demam)")
+# Text input
+user_input = st.text_input("Enter your text:")
 
 # Submit button
 if st.button("Submit"):
     if user_input.strip() == "":
-        st.warning("Jazakumullohukhoiro")
+        st.warning("Please enter some text before submitting.")
     else:
-        # Check if Excel file already exists
-        if os.path.exists(EXCEL_FILE):
-            df = pd.read_excel(EXCEL_FILE)
+        # Load or create dataframe
+        if os.path.exists(CSV_FILE):
+            df = pd.read_csv(CSV_FILE)
         else:
             df = pd.DataFrame(columns=["Text"])
 
-        # Append new row
+        # Add new submission
         new_row = pd.DataFrame({"Text": [user_input]})
         df = pd.concat([df, new_row], ignore_index=True)
 
-        # Save back to Excel
-        df.to_excel(EXCEL_FILE, index=False)
+        # Save to CSV
+        df.to_csv(CSV_FILE, index=False)
 
-        st.success("✅ جَزَاكُمُ اللهُ خَيْرًا")
+        st.success("✅ Text successfully saved!")
 
-if os.path.exists(EXCEL_FILE):
-    st.subheader("Kehadiran:")
-    df_display = pd.read_excel(EXCEL_FILE)
+# Display current submissions
+if os.path.exists(CSV_FILE):
+    st.subheader("Current Submissions:")
+    df_display = pd.read_csv(CSV_FILE)
 
-    # Function to censor all words except the first
+    # Function to censor from second word onward
     def censor_from_second_word(text):
         words = str(text).split()
         if len(words) > 1:
-            # Keep first word, replace others with *****
             censored = [words[0]] + ["*" * len(w) for w in words[1:]]
             return " ".join(censored)
         else:
             return text
 
-    # Create censored column for display
-    df_display["Absen"] = df_display["Text"].apply(censor_from_second_word)
+    # Add censored version
+    df_display["Censored_Text"] = df_display["Text"].apply(censor_from_second_word)
 
-    st.dataframe(df_display[["Absen"]])
+    st.dataframe(df_display[["Censored_Text"]])
