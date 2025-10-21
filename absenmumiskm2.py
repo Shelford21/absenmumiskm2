@@ -12,14 +12,14 @@ CSV_FILE = "submissions.csv"
 # Set your admin password here
 ADMIN_PASSWORD = "mumi99"
 
-st.set_page_config(page_title="Absen Mumi SKM 2",
+st.set_page_config(page_title="Mumi Sukamulya 2",
                    page_icon="✨",
                    layout="wide")
 
 st.markdown(
         """
         <div class="transparent-container">
-            <h1>✨ Absen Mumi SKM 2 </h1>
+            <h1>✨ Sukamulya 2</h1>
             <h4>
             يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اِنْ تَنْصُرُوا اللّٰهَ يَنْصُرْكُمْ وَيُثَبِّتْ اَقْدَامَكُمْ <br><br> 💡"Wahai orang-orang yang beriman, jika kamu menolong (agama) Allah, niscaya Dia akan menolongmu dan meneguhkan kedudukanmu"
     </h4>
@@ -95,6 +95,7 @@ if admin_password == ADMIN_PASSWORD:
 else:
     if admin_password != "":
         st.error("❌ Incorrect password.")
+
 
 
 
