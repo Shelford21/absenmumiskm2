@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import os
 
+def load_css():
+    with open("styles.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 # File to store submissions
 CSV_FILE = "submissions.csv"
 # Set your admin password here
@@ -80,6 +83,7 @@ with st.expander("🔒 Clear all data (password required)"):
                 st.info("No data file found to clear.")
         else:
             st.error("❌ Incorrect password. Access denied.")
+
 
 
 
