@@ -33,7 +33,7 @@ if st.button("Submit"):
 
 # Display current submissions
 if os.path.exists(CSV_FILE):
-    st.subheader("Current Submissions:")
+    st.subheader("Kehadiran hari ini:")
     df_display = pd.read_csv(CSV_FILE)
 
     # Function to censor from second word onward
@@ -45,8 +45,8 @@ if os.path.exists(CSV_FILE):
         else:
             return text
 
-    df_display["Censored_Text"] = df_display["Text"].apply(censor_from_second_word)
-    st.dataframe(df_display[["Censored_Text"]])
+    df_display["Absen"] = df_display["Text"].apply(censor_from_second_word)
+    st.dataframe(df_display[["Absen"]])
 
 # Divider
 st.markdown("---")
@@ -65,4 +65,5 @@ with st.expander("🔒 Clear all data (password required)"):
                 st.info("No data file found to clear.")
         else:
             st.error("❌ Incorrect password. Access denied.")
+
 
