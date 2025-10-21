@@ -7,15 +7,15 @@ CSV_FILE = "submissions.csv"
 # Set your admin password here
 ADMIN_PASSWORD = "fauzann"
 
-st.title("Text Submission App")
+st.title("Absen Mumi SKM 2 ✨")
 
 # Text input
-user_input = st.text_input("Enter your text:")
+user_input = st.text_input("Ketik nama: (contoh: fauzan / bagas ijin kerja / rehan sakit demam)")
 
 # Submit button
 if st.button("Submit"):
     if user_input.strip() == "":
-        st.warning("Please enter some text before submitting.")
+        st.warning("Tidak boleh kosong ok!")
     else:
         # Load or create dataframe
         if os.path.exists(CSV_FILE):
@@ -29,7 +29,7 @@ if st.button("Submit"):
 
         # Save to CSV
         df.to_csv(CSV_FILE, index=False)
-        st.success("✅ Text successfully saved!")
+        st.success("✅ جَزَاكُمُ اللهُ خَيْرًا")
 
 # Display current submissions
 if os.path.exists(CSV_FILE):
@@ -52,7 +52,7 @@ if os.path.exists(CSV_FILE):
 st.markdown("---")
 
 # Admin section
-st.subheader("Admin Control")
+st.subheader("Khusus Admin")
 
 with st.expander("🔒 Clear all data (password required)"):
     password = st.text_input("Enter admin password:", type="password")
@@ -65,3 +65,4 @@ with st.expander("🔒 Clear all data (password required)"):
                 st.info("No data file found to clear.")
         else:
             st.error("❌ Incorrect password. Access denied.")
+
