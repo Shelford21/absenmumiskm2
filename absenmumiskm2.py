@@ -11,7 +11,18 @@ st.set_page_config(page_title="Absen Mumi SKM 2",
                    page_icon="✨",
                    layout="wide")
 
-st.title("Absen Mumi SKM 2 ✨")
+st.markdown(
+        """
+        <div class="transparent-container">
+            <h1>✨ Absen Mumi SKM 2/h1>
+            <h4>
+            يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اِنْ تَنْصُرُوا اللّٰهَ يَنْصُرْكُمْ وَيُثَبِّتْ اَقْدَامَكُمْ 
+            "Wahai orang-orang yang beriman, jika kamu menolong (agama) Allah, niscaya Dia akan menolongmu dan meneguhkan kedudukanmu"
+    </h4>
+    
+        """,
+        unsafe_allow_html=True
+    )
 
 # Text input
 user_input = st.text_input("Ketik nama: (contoh: fauzan / bagas ijin kerja / rehan sakit demam)")
@@ -69,6 +80,7 @@ with st.expander("🔒 Clear all data (password required)"):
                 st.info("No data file found to clear.")
         else:
             st.error("❌ Incorrect password. Access denied.")
+
 
 
 
