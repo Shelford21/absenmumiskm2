@@ -21,9 +21,7 @@ st.markdown(
         <div class="transparent-container">
             <h1>✨ Absen Mumi SKM 2 </h1>
             <h4>
-            يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اِنْ تَنْصُرُوا اللّٰهَ يَنْصُرْكُمْ وَيُثَبِّتْ اَقْدَامَكُمْ 
-           
-            "Wahai orang-orang yang beriman, jika kamu menolong (agama) Allah, niscaya Dia akan menolongmu dan meneguhkan kedudukanmu"
+            يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اِنْ تَنْصُرُوا اللّٰهَ يَنْصُرْكُمْ وَيُثَبِّتْ اَقْدَامَكُمْ "Wahai orang-orang yang beriman, jika kamu menolong (agama) Allah, niscaya Dia akan menolongmu dan meneguhkan kedudukanmu"
     </h4>
     
         """,
@@ -86,6 +84,7 @@ with st.expander("🔒 Clear all data (password required)"):
                 st.info("No data file found to clear.")
         else:
             st.error("❌ Incorrect password. Access denied.")
+
 
 
 
