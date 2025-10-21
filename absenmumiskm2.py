@@ -85,9 +85,17 @@ if admin_password == ADMIN_PASSWORD:
                 st.success("✅ All data cleared successfully!")
             else:
                 st.info("No data file found to clear.")
+    with st.expander("🚀 Download data absen"):
+        st.download_button(
+            label="⬇️ Unduh absen ok",
+            data=df_display.to_csv(index=False).encode('utf-8'),
+            file_name="submissions.csv",
+            mime="text/csv"
+    )
 else:
     if admin_password != "":
         st.error("❌ Incorrect password.")
+
 
 
 
