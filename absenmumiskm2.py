@@ -7,6 +7,10 @@ CSV_FILE = "submissions.csv"
 # Set your admin password here
 ADMIN_PASSWORD = "fauzann"
 
+st.set_page_config(page_title="Absen Mumi SKM 2",
+                   page_icon="✨",
+                   layout="wide")
+
 st.title("Absen Mumi SKM 2 ✨")
 
 # Text input
@@ -65,5 +69,6 @@ with st.expander("🔒 Clear all data (password required)"):
                 st.info("No data file found to clear.")
         else:
             st.error("❌ Incorrect password. Access denied.")
+
 
 
