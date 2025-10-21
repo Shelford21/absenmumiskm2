@@ -347,7 +347,7 @@ div[data-testid="stVerticalBlock"]>div>div>button{
 	.transparent-container > div > h4{
 		width:auto !important;
          max-width: 90% !important; /* Reduce width */
-         font-size: 10vw !important;/* Smaller font size ga ngaruh jims*/
+         font-size: 5vw !important;/* Smaller font size ga ngaruh jims*/
         padding: 10px !important; /* Reduce padding */
     }
 
@@ -529,6 +529,7 @@ font-size: 1.3rem;
 		transform: scale3d(1, 1, 1);
 	}
 }
+
 
 
 
