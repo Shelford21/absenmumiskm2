@@ -73,17 +73,22 @@ st.markdown("---")
 # Admin section
 st.subheader("Khusus Admin")
 
-with st.expander("🔒 Clear all data (password required)"):
-    password = st.text_input("Enter admin password:", type="password")
-    if st.button("Clear Data"):
-        if password == ADMIN_PASSWORD:
+# Ask for password first
+admin_password = st.text_input("Masukan password untuk menggunakan fitur:", type="password")
+
+# If password is correct, show expander
+if admin_password == ADMIN_PASSWORD:
+    with st.expander("🧹 Clear all data"):
+        if st.button("Clear Data"):
             if os.path.exists(CSV_FILE):
                 os.remove(CSV_FILE)
                 st.success("✅ All data cleared successfully!")
             else:
                 st.info("No data file found to clear.")
-        else:
-            st.error("❌ Incorrect password. Access denied.")
+else:
+    if admin_password != "":
+        st.error("❌ Incorrect password.")
+
 
 
 
