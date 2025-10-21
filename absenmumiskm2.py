@@ -4,6 +4,8 @@ import os
 
 # File to store submissions
 CSV_FILE = "submissions.csv"
+# Set your admin password here
+ADMIN_PASSWORD = "fauzann"
 
 st.title("Text Submission App")
 
@@ -27,7 +29,6 @@ if st.button("Submit"):
 
         # Save to CSV
         df.to_csv(CSV_FILE, index=False)
-
         st.success("✅ Text successfully saved!")
 
 # Display current submissions
@@ -44,7 +45,23 @@ if os.path.exists(CSV_FILE):
         else:
             return text
 
-    # Add censored version
     df_display["Censored_Text"] = df_display["Text"].apply(censor_from_second_word)
-
     st.dataframe(df_display[["Censored_Text"]])
+
+# Divider
+st.markdown("---")
+
+# Admin section
+st.subheader("Admin Control")
+
+with st.expander("🔒 Clear all data (password required)"):
+    password = st.text_input("Enter admin password:", type="password")
+    if st.button("Clear Data"):
+        if password == ADMIN_PASSWORD:
+            if os.path.exists(CSV_FILE):
+                os.remove(CSV_FILE)
+                st.success("✅ All data cleared successfully!")
+            else:
+                st.info("No data file found to clear.")
+        else:
+            st.error("❌ Incorrect password. Access denied.")
