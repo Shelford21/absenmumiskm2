@@ -21,7 +21,8 @@ st.markdown(
         <div class="transparent-container">
             <h1>✨ Mumi SKM 2</h1>
             <h4>
-            يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اِنْ تَنْصُرُوا اللّٰهَ يَنْصُرْكُمْ وَيُثَبِّتْ اَقْدَامَكُمْ <br><br> 💡"Wahai orang-orang yang beriman, jika kamu menolong (agama) Allah, niscaya Dia akan menolongmu dan meneguhkan kedudukanmu" QS 47 ayat 7 <br><br>INFO:<br>mumi skm 2 only ok<br>skm 1 dan 3 skip aja gaperlu pakai web ini 🔎
+            website ini sudah tidak dipakai, pake link absen terbaru ini: https://skm2mumionly.streamlit.app/
+            # يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اِنْ تَنْصُرُوا اللّٰهَ يَنْصُرْكُمْ وَيُثَبِّتْ اَقْدَامَكُمْ <br><br> 💡"Wahai orang-orang yang beriman, jika kamu menolong (agama) Allah, niscaya Dia akan menolongmu dan meneguhkan kedudukanmu" QS 47 ayat 7 <br><br>INFO:<br>mumi skm 2 only ok<br>skm 1 dan 3 skip aja gaperlu pakai web ini 🔎
     </h4>
     
         """,
@@ -95,6 +96,7 @@ if admin_password == ADMIN_PASSWORD:
 else:
     if admin_password != "":
         st.error("❌ Incorrect password.")
+
 
 
 
