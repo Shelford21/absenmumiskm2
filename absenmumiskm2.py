@@ -12,7 +12,7 @@ CSV_FILE = "submissions.csv"
 # Set your admin password here
 ADMIN_PASSWORD = "mumi99"
 
-st.set_page_config(page_title="Mumi Sukamulya 2",
+st.set_page_config(page_title="expired lee",
                    page_icon="✨",
                    layout="wide")
 
@@ -96,6 +96,7 @@ if admin_password == ADMIN_PASSWORD:
 else:
     if admin_password != "":
         st.error("❌ Incorrect password.")
+
 
 
 
