@@ -7,9 +7,9 @@ def load_css():
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 load_css()
-# File to store submissions
+
 CSV_FILE = "submissions.csv"
-# Set your admin password here
+
 ADMIN_PASSWORD = "mumi99"
 
 st.set_page_config(page_title="expired lee",
@@ -29,34 +29,34 @@ st.markdown(
         unsafe_allow_html=True
     )
 
-# Text input
+
 user_input = st.text_input("Ketik nama: (contoh: fauzan / bagas ijin kerja / rehan sakit demam)")
 
-# Submit button
+
 if st.button("Submit"):
     if user_input.strip() == "":
         st.warning("Tidak boleh kosong ok!")
     else:
-        # Load or create dataframe
+      
         if os.path.exists(CSV_FILE):
             df = pd.read_csv(CSV_FILE)
         else:
             df = pd.DataFrame(columns=["Text"])
 
-        # Add new submission
+        
         new_row = pd.DataFrame({"Text": [user_input]})
         df = pd.concat([df, new_row], ignore_index=True)
 
-        # Save to CSV
+        
         df.to_csv(CSV_FILE, index=False)
         st.success("✅ جَزَاكُمُ اللهُ خَيْرًا")
 
-# Display current submissions
+
 if os.path.exists(CSV_FILE):
     st.subheader("Kehadiran hari ini:")
     df_display = pd.read_csv(CSV_FILE)
 
-    # Function to censor from second word onward
+    # sensor
     def censor_from_second_word(text):
         words = str(text).split()
         if len(words) > 1:
@@ -68,16 +68,14 @@ if os.path.exists(CSV_FILE):
     df_display["Absen"] = df_display["Text"].apply(censor_from_second_word)
     st.dataframe(df_display[["Absen"]])
 
-# Divider
+
 st.markdown("---")
 
-# Admin section
+
 st.subheader("Khusus Admin")
 
-# Ask for password first
 admin_password = st.text_input("Masukan password untuk menggunakan fitur:", type="password")
 
-# If password is correct, show expander
 if admin_password == ADMIN_PASSWORD:
     with st.expander("🧹 Clear all data"):
         if st.button("Clear Data"):
@@ -96,6 +94,7 @@ if admin_password == ADMIN_PASSWORD:
 else:
     if admin_password != "":
         st.error("❌ Incorrect password.")
+
 
 
 
